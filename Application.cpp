@@ -1,6 +1,5 @@
 #include "Application.h"
 
-
 bool Authorization::check_password(const std::string& password)const
 {
 	if (m_account == nullptr)  return false;
@@ -24,4 +23,8 @@ bool Authorization::logout() noexcept
 	}
 }
 
-
+bool Authorization::authorization(const std::string& username, Users_Manager* Server)
+{
+	m_account = Server->find(username);
+	return (m_account != nullptr);
+}

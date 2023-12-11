@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <fstream>
 #include "FileDataManager.h"
 
 class Users_Manager
@@ -23,4 +24,17 @@ public:
 	void add_user(std::shared_ptr<User>) override;
 private:
 	std::vector<std::shared_ptr<User>> m_database;
+};
+
+class Json_Data_Manager : public Users_Manager
+{
+public:
+	Json_Data_Manager() = default;
+	~Json_Data_Manager();
+public:
+	bool Data_include(const std::string&);
+	std::shared_ptr<User> find(const std::string&) override;
+	void add_user(std::shared_ptr<User>) override;
+private:
+	std::fstream m_stream;
 };

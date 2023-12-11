@@ -20,3 +20,7 @@ static constexpr unsigned Ignore_size = 100;
 static constexpr char Separator_character = ':';
 static constexpr char Beginning_character = '{';
 static constexpr char Ending_character = '}';
+
+// file read/writing values
+
+static constexpr int Start = 0;
