@@ -1,12 +1,6 @@
 #include "Application.h"
 
 
-bool Authorization::user_authorization(const std::string& username,User_Manager* Server)
-{
-	m_account = Server->find(username);
-	return (m_account)? true : false;
-}
-
 bool Authorization::check_password(const std::string& password)const
 {
 	if (m_account == nullptr)  return false;

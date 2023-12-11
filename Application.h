@@ -4,7 +4,6 @@
 class Authorization
 {
 	public:
-		bool user_authorization(const std::string& , User_Manager* );
 		bool check_password(const std::string&) const;
 		inline bool check_index(int index) const noexcept { return (m_account->return_index() == index); }
 		bool forgot_password(const std::string&);
