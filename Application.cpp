@@ -28,3 +28,5 @@ bool Authorization::authorization(const std::string& username, Users_Manager* Se
 	m_account = Server->find(username);
 	return (m_account != nullptr);
 }
+
+

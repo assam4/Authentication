@@ -33,21 +33,15 @@ std::shared_ptr<User> Json_Data_Manager::find(const std::string& name) {
     json another_user;
     m_stream.seekg(Start);
 
-    try 
-    {
         while (m_stream >> another_user) 
         {
-            if (m_stream.eof()) 
+            m_stream.ignore(Ignore_size, Beginning_character);
+            if (m_stream.eof())
                 break;
             if (another_user.contains("username") && another_user["username"] == name) 
                 return format.from_format(another_user);
         }
-    }
-    catch (const nlohmann::json::parse_error& e) 
-    {
-        return nullptr;
-    }
-
+ 
     return nullptr;
 }
 
