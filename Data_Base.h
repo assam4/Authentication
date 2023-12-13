@@ -11,6 +11,8 @@ public:
 public:
 	virtual std::shared_ptr<User> find(const std::string&) = 0;
 	virtual void add_user(std::shared_ptr<User>) = 0;
+	virtual std::shared_ptr<User> get_last() = 0;
+	
 	
 };
 
@@ -22,6 +24,8 @@ public:
 public:
 	std::shared_ptr<User> find(const std::string&) override;
 	void add_user(std::shared_ptr<User>) override;
+	std::shared_ptr<User> get_last() override { return (!m_database.empty()) ? m_database[m_database.size() - 1] : nullptr; }
+	
 private:
 	std::vector<std::shared_ptr<User>> m_database;
 };
@@ -35,6 +39,7 @@ public:
 	bool Data_include(const std::string&);
 	std::shared_ptr<User> find(const std::string&) override;
 	void add_user(std::shared_ptr<User>) override;
+	std::shared_ptr<User> get_last() override;
 private:
 	std::fstream m_stream;
 };

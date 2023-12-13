@@ -24,3 +24,4 @@ static constexpr char Ending_character = '}';
 // file read/writing values
 
 static constexpr int Start = 0;
+static constexpr int Empty = 0;

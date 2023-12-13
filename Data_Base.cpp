@@ -1,5 +1,4 @@
 #include "Data_Base.h"
-
 // class Container_Data_Manager methods
 
 std::shared_ptr<User> Container_User_Manager::find(const std::string& name)
@@ -50,3 +49,19 @@ void Json_Data_Manager::add_user(std::shared_ptr<User> new_user)
 	m_stream << Json_Formating::to_format(new_user) << std::endl;
 }
 
+std::shared_ptr<User> Json_Data_Manager::get_last()
+{
+    if (m_stream.peek() == std::ifstream::traits_type::eof()) 
+        return nullptr;
+    json userJson;
+    std::string lastLine;
+    while (std::getline(m_stream, lastLine)) 
+    {
+        if (json::accept(lastLine))
+            userJson = json::parse(lastLine);
+        else break;
+    }
+    return (userJson.contains("username")) ? Json_Formating::from_format(userJson) : nullptr;
+}
+
+  
