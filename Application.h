@@ -17,7 +17,7 @@ class Authorization
 class Registration
 {
 public:
-	Registration():m_name(" "),m_password(" "),m_index(-1) {}
+	Registration():m_name(" "),m_password(" "),m_index(Empty) {}
 	~Registration() = default;
 
 public:
