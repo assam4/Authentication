@@ -16,8 +16,6 @@ void Container_User_Manager::add_user(std::shared_ptr<User> new_user)
 }
 
 // class Json_User_Manager
-Json_Formating format;
-
 bool Json_Data_Manager::Data_include(const std::string& filename)
 {
 	m_stream.open(filename, std::ios::in | std::ios::out | std::ios::app);
@@ -39,7 +37,7 @@ std::shared_ptr<User> Json_Data_Manager::find(const std::string& name) {
             if (m_stream.eof())
                 break;
             if (another_user.contains("username") && another_user["username"] == name) 
-                return format.from_format(another_user);
+                return Json_Formating::from_format(another_user);
         }
  
     return nullptr;
@@ -49,5 +47,6 @@ std::shared_ptr<User> Json_Data_Manager::find(const std::string& name) {
 void Json_Data_Manager::add_user(std::shared_ptr<User> new_user)
 {
 	m_stream.seekp(0, std::ios_base::end);
-	m_stream << format.to_format(new_user) << std::endl;
+	m_stream << Json_Formating::to_format(new_user) << std::endl;
 }
+
