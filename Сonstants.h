@@ -25,3 +25,9 @@ static constexpr char Ending_character = '}';
 
 static constexpr int Start = 0;
 static constexpr int Empty = 0;
+
+// Authentication values
+
+static const int max_try = 3;
+static const char Ok = 'y';
+static const char Cancel = 'n';
