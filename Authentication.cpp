@@ -39,7 +39,7 @@ void authentication(Users_Manager* data_base)
 			std::cout << "Lets start creating account " << std::endl;
 	}
 }
-
+/*
 int main()
 {
 	try {
@@ -54,3 +54,4 @@ int main()
 	}
 	
 }
+*/
