@@ -6,5 +6,3 @@ Possibilities:
 - User search tools, data changes and tracking the number of users.
   
 In addition, the tools are tested using gtest.
-
-Description of functionality:
